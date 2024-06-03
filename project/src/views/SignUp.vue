@@ -15,6 +15,7 @@
 </template>
 
 <script setup>
+import {supabase} from '../supabaseClient.js'
 async function signUp () {
     const {data: userData, error}  = await supabase.auth.signUp ({
         email: email.value,
