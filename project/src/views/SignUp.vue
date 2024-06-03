@@ -1,27 +1,34 @@
 <template>
     <div>
         <label for="">Email:</label>
-        <input type="text" name=""/>
+        <input type="text" name="" v-model = "mail"/>
     </div>
     <div>
         <label for="">Username:</label>
-        <input type="text" name=""/>
+        <input type="text" name="" v-model = "user"/>
     </div>
     <div>
         <label for="">Password:</label>
-        <input type="text" name=""/>
-        <button>Submit</button>
+        <input type="text" name="" v-model = "pass"/>
+        <button @click = "signUp()">Submit</button>
     </div>
 </template>
 
 <script setup>
-import {supabase} from '../supabaseClient.js'
+import { supabase } from '../supabaseClient.js'
+import { ref } from 'vue';
+
+const mail = ref("")
+const user = ref("")
+const pass = ref("")
+
 async function signUp () {
     const {data: userData, error}  = await supabase.auth.signUp ({
-        email: email.value,
+        email: mail.value,
         username: user.value,
         password: pass.value,
     })
+    console.log(mail.value, user.value, pass.value)
     console.log(userData)
     if (error) {
         console.log(error)
