@@ -1,6 +1,16 @@
 <template>
     <div>
-
+        <label for="">Email:</label>
+        <input type="text" name=""/>
+    </div>
+    <div>
+        <label for="">Username:</label>
+        <input type="text" name=""/>
+    </div>
+    <div>
+        <label for="">Password:</label>
+        <input type="text" name=""/>
+        <button>Submit</button>
     </div>
 </template>
 
@@ -22,6 +32,6 @@ async function signUp () {
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
