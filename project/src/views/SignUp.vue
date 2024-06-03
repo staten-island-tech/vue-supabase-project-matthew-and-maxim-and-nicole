@@ -38,6 +38,20 @@ async function signUp () {
     }
 };
 
+
+async function insertData (userData) {
+    const {data: insertData, error: insertData} = await supabase
+    .from ("profiles")
+    .insert ([
+        {id: userData.user.id, email: mail.value, username: user.value, password: pass.value}
+    ])
+    if (insertError) {
+        console.log(insertError);
+    } else {
+        console.log(insertData);
+    }
+};
+
 </script>
 
 <style scoped>
