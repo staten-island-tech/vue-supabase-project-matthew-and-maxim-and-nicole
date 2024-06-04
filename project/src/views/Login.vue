@@ -1,6 +1,12 @@
 <template>
     <div>
-
+        <label for="">Email:</label>
+        <input type="text" name="" v-model = "mail"/>
+    </div>
+    <div>
+        <label for="">Password:</label>
+        <input type="text" name="" v-model = "pass"/>
+        <button @click = "login">Submit</button>
     </div>
 </template>
 
