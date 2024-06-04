@@ -33,14 +33,14 @@ async function signUp () {
     if (error) {
         console.log(error)
     } else {
-        insertData(userData)
+        insertData(userData);
         return userData
     }
 };
 
-/* async function insertData (userData) {
+async function insertData (userData) {
     const {data: insertData, error: insertError} = await supabase
-    .from ("profiles")
+    .from ('profiles')
     .insert ([
         {id: userData.user.id, email: mail.value, username: user.value, password: pass.value}
     ])
@@ -49,7 +49,7 @@ async function signUp () {
     } else {
         console.log(insertData);
     }
-}; */
+};
 
 </script>
 
