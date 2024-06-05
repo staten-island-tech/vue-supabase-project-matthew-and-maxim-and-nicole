@@ -1,4 +1,5 @@
 <template>
+    <form action="" :initial-values = "formValues">
     <div>
         <label for="">Email:</label>
         <input type="text" name="" v-model = "mail"/>
@@ -12,6 +13,7 @@
         <input type="password" name="" v-model = "pass"/>
         <button @click = "signUp()">Submit</button>
     </div>
+    </form>
 </template>
 
 <script setup>
@@ -50,6 +52,12 @@ async function insertData (userData) {
         console.log(insertData);
     }
 };
+
+const formValues = {
+    email: 'example@example.com',
+    username: 'username',
+    password: 'password'
+}
 
 </script>
 
