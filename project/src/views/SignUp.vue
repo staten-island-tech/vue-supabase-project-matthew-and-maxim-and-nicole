@@ -9,7 +9,7 @@
     </div>
     <div>
         <label for="">Password:</label>
-        <input type="text" name="" v-model = "pass"/>
+        <input type="password" name="" v-model = "pass"/>
         <button @click = "signUp()">Submit</button>
     </div>
 </template>
