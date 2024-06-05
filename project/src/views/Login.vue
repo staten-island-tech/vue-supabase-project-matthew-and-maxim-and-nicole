@@ -6,7 +6,7 @@
     <div>
         <label for="">Password:</label>
         <input type="text" name="" v-model = "pass"/>
-        <button @click = "login">Submit</button>
+        <button @click = "signIn">Submit</button>
     </div>
 </template>
 
@@ -17,8 +17,8 @@ import { ref } from 'vue';
 const mail = ref("")
 const pass = ref("")
 
-async function login () {
-const {data: session, error} = await supabase.auth.loginWithPassword ({
+async function signIn () {
+const {data: session, error} = await supabase.auth.signInWithPassword ({
     email: mail.value,
     password: pass.value,
 }) 
