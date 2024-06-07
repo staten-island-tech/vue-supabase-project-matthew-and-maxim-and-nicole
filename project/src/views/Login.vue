@@ -37,7 +37,7 @@ async function getSession () {
     if (error) {
         console.log(error)
     }
-    return session
+    return data.session.user
 }
 
 </script>
