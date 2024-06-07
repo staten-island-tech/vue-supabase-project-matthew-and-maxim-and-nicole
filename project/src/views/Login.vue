@@ -6,8 +6,9 @@
     <div>
         <label for="">Password:</label>
         <input type="text" name="" v-model = "pass"/>
-        <button @click = "signIn">Submit</button>
+        <button @click = "signIn()">Submit</button>
     </div>
+    <button @click = "getSession()">Get current session</button>
 </template>
 
 <script setup>
@@ -29,6 +30,15 @@ if (error) {
 }
 return session
 };
+
+async function getSession () {
+    const {data, error} = await supabase.auth.getSession()
+    console.log(data)
+    if (error) {
+        console.log(error)
+    }
+    return session
+}
 
 </script>
 
