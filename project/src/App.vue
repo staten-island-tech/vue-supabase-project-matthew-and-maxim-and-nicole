@@ -56,7 +56,7 @@ header {
   display: flex;
   justify-content: center;
 }
-.ingredient {
+.item {
   height: 100px;
   object-fit: contain;
 }
