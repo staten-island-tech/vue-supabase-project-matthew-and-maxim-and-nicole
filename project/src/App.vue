@@ -4,8 +4,8 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-
-    <div class="wrapper">
+    <div v-for="item in items">
+      <ItemButton :value="item" @clicked="addItem(item)" />
 
       <nav>
         <RouterLink to="/">Sign Up</RouterLink>
