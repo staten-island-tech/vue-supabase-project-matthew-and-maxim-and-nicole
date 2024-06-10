@@ -8,7 +8,7 @@
         <input type="text" name="" v-model = "pass"/>
         <button @click = "signIn()">Submit</button>
     </div>
-    <button @click = "getSession()">Get current session</button>
+    <!-- <button @click = "getSession()">Get current session</button> -->
 </template>
 
 <script setup>
@@ -28,10 +28,10 @@ if (error) {
 } else {
     console.log(session)
 }
-return session
+/* return session */
 };
 
-async function getSession () {
+/* async function getSession () {
     const {data, error} = await supabase.auth.getSession()
     console.log(data)
     if (error) {
@@ -39,7 +39,7 @@ async function getSession () {
     }
     return data.session.user
 }
-
+ */
 </script>
 
 <style scoped>
