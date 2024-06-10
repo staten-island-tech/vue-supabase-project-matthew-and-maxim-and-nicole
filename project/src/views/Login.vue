@@ -12,6 +12,7 @@
 </template>
 
 <script setup>
+import router from '@/router';
 import { supabase } from '../supabaseClient.js'
 import { ref } from 'vue';
 
@@ -26,20 +27,10 @@ const {data: session, error} = await supabase.auth.signInWithPassword ({
 if (error) {
     console.log(error)
 } else {
-    console.log(session)
+    router.push("/store")
 }
-/* return session */
 };
 
-/* async function getSession () {
-    const {data, error} = await supabase.auth.getSession()
-    console.log(data)
-    if (error) {
-        console.log(error)
-    }
-    return data.session.user
-}
- */
 </script>
 
 <style scoped>
