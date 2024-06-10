@@ -1,5 +1,4 @@
 <template>
-    <form action="">
     <div>
         <label for="">Email:</label>
         <input type="text" name="" v-model = "mail"/>
@@ -13,7 +12,6 @@
         <input type="password" name="" v-model = "pass"/>
         <button @click = "signUp()">Submit</button>
     </div>
-    </form>
 </template>
 
 <script setup>
