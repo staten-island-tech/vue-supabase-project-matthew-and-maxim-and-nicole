@@ -4,12 +4,12 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <div v-for="item in items">
-      <ItemButton :value="item" @clicked="addItem(item)" />
+    <div>
 
       <nav>
         <RouterLink to="/">Sign Up</RouterLink>
         <RouterLink to="/login">Log In</RouterLink>
+        <RouterLink to="/store">Store</RouterLink>
       </nav>
     </div>
   </header>
