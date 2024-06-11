@@ -45,10 +45,6 @@ getSavedItems()
         <ItemButton :value="item" @clicked="addItem(item)" />
       </div>
     </div>
-    <div class="auth-buttons">
-      <button @click="signUp">Sign Up</button>
-      <button @click="login">Login</button>
-    </div>
   </header>
 
   <main>
@@ -92,28 +88,6 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-}
-
-.auth-buttons {
-  margin-top: 15px; 
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.auth-buttons button {
-  background-color: #fff;
-  color: #333;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.auth-buttons button:hover {
-  background-color: #ddd;
-  color: #000;
 }
 
 h2 {
