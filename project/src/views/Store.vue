@@ -1,10 +1,19 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import ItemButton from "../components/ItemButton.vue";
 import { ITEMS } from "../constants/items";
+import { supabase } from '../supabaseClient.js'
 
 const itemList = ref([]);
 const items = ref(ITEMS);
+
+function getSavedItems() {
+// use read rows with filtering
+
+/* const { data: cart, error } = await supabase
+  .from('cart')
+  .select('item') */
+}
 
 function addItem(item) {
   itemList.value.push(item);
@@ -12,13 +21,20 @@ function addItem(item) {
     0,
     document.body.scrollHeight || document.documentElement.scrollHeight
   );
+  // use insert rows
+  
+
+          
 }
 
 function removeItem(index) {
   console.log(index);
   console.log(itemList.value[index]);
   itemList.value.splice(index, 1);
+  // use delete rows
 }
+
+getSavedItems()
 </script>
 
 <template>
