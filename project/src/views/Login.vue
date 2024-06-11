@@ -5,7 +5,7 @@
     </div>
     <div>
         <label for="">Password:</label>
-        <input type="text" name="" v-model = "pass"/>
+        <input type="password" name="" v-model = "pass"/>
         <button @click = "signIn()">Submit</button>
     </div>
     <!-- <button @click = "getSession()">Get current session</button> -->
