@@ -24,8 +24,14 @@ function removeItem(index) {
 <template>
   <h2>Click image to remove</h2>
   <header>
-    <div v-for="item in items" :key="item.id">
-      <ItemButton :value="item" @clicked="addItem(item)" />
+    <div class="items-container">
+      <div v-for="item in items" :key="item.id">
+        <ItemButton :value="item" @clicked="addItem(item)" />
+      </div>
+    </div>
+    <div class="auth-buttons">
+      <button @click="signUp">Sign Up</button>
+      <button @click="login">Login</button>
     </div>
   </header>
 
@@ -55,7 +61,7 @@ header {
   top: 0;
   left: 0;
   width: 200px;
-  height: 100vh;
+  height: 95vh;
   background-color: #333;
   display: flex;
   flex-direction: column;
@@ -64,8 +70,34 @@ header {
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-header div {
-  margin-bottom: 20px;
+.items-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.auth-buttons {
+  margin-top: 15px; 
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-buttons button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.auth-buttons button:hover {
+  background-color: #ddd;
+  color: #000;
 }
 
 h2 {
@@ -74,7 +106,7 @@ h2 {
 }
 
 main {
-  margin-left: 220px;
+  margin-left: 240px;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
