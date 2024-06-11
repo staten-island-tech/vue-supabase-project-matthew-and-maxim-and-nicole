@@ -7,7 +7,7 @@ const itemList = ref([]);
 const items = ref(ITEMS);
 
 function addItem(item) {
-  itemList.value.push(item)
+  itemList.value.push(item);
   window.scrollTo(
     0,
     document.body.scrollHeight || document.documentElement.scrollHeight
@@ -24,40 +24,86 @@ function removeItem(index) {
 <template>
   <h2>Click image to remove</h2>
   <header>
-    <div v-for="item in items">
+    <div v-for="item in items" :key="item.id">
       <ItemButton :value="item" @clicked="addItem(item)" />
     </div>
   </header>
 
-  <div
-    v-for="(item, index) in itemList"
-    @click="removeItem(index)"
-    class="horizontal-center"
-  >
-    <img :src="item.src" class="item" />
-  </div>
-  
+  <main>
+    <div
+      v-for="(item, index) in itemList"
+      :key="index"
+      @click="removeItem(index)"
+      class="image-container"
+    >
+      <img :src="item.src" class="item" />
+    </div>
+  </main>
 </template>
 
 <style scoped>
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
 header {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
-  background-color: gray;
+  width: 200px;
+  height: 100vh;
+  background-color: #333;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.horizontal-center {
+header div {
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+main {
+  margin-left: 220px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.image-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.image-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .item {
-  height: 100px;
+  height: 80px;
   object-fit: contain;
+  margin: 10px;
 }
 </style>

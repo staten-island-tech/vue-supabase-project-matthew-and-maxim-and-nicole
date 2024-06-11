@@ -35,4 +35,8 @@ export const ITEMS = [
     name: "Bacon",
     src: "https://www.wellplated.com/wp-content/uploads/2023/06/Baked-bacon-in-the-oven.jpg"
   },
+  {
+    name: "Eggs",
+    src: "https://tse1.mm.bing.net/th?id=OIP.nsapv4aiFwUPm_lYYf1dTQHaE8&pid=Api&P=0&h=220"
+  },
 ]
