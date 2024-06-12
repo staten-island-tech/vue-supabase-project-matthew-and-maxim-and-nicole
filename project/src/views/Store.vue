@@ -7,22 +7,29 @@ import { supabase } from '../supabaseClient.js'
 const itemList = ref([]);
 const items = ref(ITEMS);
 
-function getSavedItems() {
+async function getSavedItems() {
 // use read rows with filtering
-
-/* const { data: cart, error } = await supabase
-  .from('cart')
-  .select('item') */
+const { data: cart, error } = await supabase
+    .from('cart')
+    .select('item');
+    if (error) {
+    console.error('Error', error);
+  } else {
+    itemList.value = cart.map(entry => entry.item);
+  }
 }
 
-function addItem(item) {
-  itemList.value.push(item);
+
+async function addItem(item) {
+ /*  itemList.value.push(item);
   window.scrollTo(
     0,
     document.body.scrollHeight || document.documentElement.scrollHeight
-  );
+  ); */
   // use insert rows
-  
+  const { data, error } = await supabase
+    .from('cart')
+    .insert([{ item }]);
 
           
 }
