@@ -27,7 +27,7 @@ async function addItem(item) {
     document.body.scrollHeight || document.documentElement.scrollHeight
   ); */
   // use insert rows
-  const {cart , error } = await supabase
+  const {data, error } = await supabase
     .from('cart')
     .insert([{ item }]);
     if (error) {
