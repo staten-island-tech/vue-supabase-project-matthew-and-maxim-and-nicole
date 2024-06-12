@@ -13,7 +13,7 @@ const { data: cart, error } = await supabase
     .from('cart')
     .select('item');
     if (error) {
-    console.error('Error', error);
+    console.log(error);
   } else {
     itemList.value = cart.map(entry => entry.item);
   }
@@ -27,11 +27,11 @@ async function addItem(item) {
     document.body.scrollHeight || document.documentElement.scrollHeight
   ); */
   // use insert rows
-  const { data: cart , error } = await supabase
+  const {cart , error } = await supabase
     .from('cart')
     .insert([{ item }]);
     if (error) {
-    console.error('Error', error);
+    console.log(error);
   } else {
     itemList.value.push(item);
     window.scrollTo(
@@ -48,12 +48,12 @@ async function removeItem(index) {
   itemList.value.splice(index, 1); */
   // use delete rows
   const itemToRemove = itemList.value[index];
-  const { data: cart, error } = await supabase
+  const {error } = await supabase
     .from('cart')
     .delete()
     .eq('item', itemToRemove);
   if (error) {
-    console.error('Error', error);
+    console.log(error);
   } else {
     itemList.value.splice(index, 1);
   }
