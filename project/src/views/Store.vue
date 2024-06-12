@@ -27,21 +27,39 @@ async function addItem(item) {
     document.body.scrollHeight || document.documentElement.scrollHeight
   ); */
   // use insert rows
-  const { data, error } = await supabase
+  const { data: cart , error } = await supabase
     .from('cart')
     .insert([{ item }]);
-
+    if (error) {
+    console.error('Error', error);
+  } else {
+    itemList.value.push(item);
+    window.scrollTo(
+      0,
+      document.body.scrollHeight || document.documentElement.scrollHeight
+    );
+  }
           
 }
 
-function removeItem(index) {
-  console.log(index);
+async function removeItem(index) {
+ /*  console.log(index);
   console.log(itemList.value[index]);
-  itemList.value.splice(index, 1);
+  itemList.value.splice(index, 1); */
   // use delete rows
+  const itemToRemove = itemList.value[index];
+  const { data: cart, error } = await supabase
+    .from('cart')
+    .delete()
+    .eq('item', itemToRemove);
+  if (error) {
+    console.error('Error', error);
+  } else {
+    itemList.value.splice(index, 1);
+  }
 }
 
-getSavedItems()
+onMounted(getSavedItems)
 </script>
 
 <template>
