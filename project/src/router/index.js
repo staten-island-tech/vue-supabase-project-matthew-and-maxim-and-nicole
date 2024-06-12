@@ -15,9 +15,10 @@ const router = createRouter({
       component: () => import('../views/Login.vue')
     },
     {
-      path: '/store',
+      path: '/store/:id',
       name: 'Store',
-      component: () => import('../views/Store.vue')
+      component: () => import('../views/Store.vue'),
+      props: true
     }
   ]
 })

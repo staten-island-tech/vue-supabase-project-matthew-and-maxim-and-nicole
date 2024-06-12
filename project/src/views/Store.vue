@@ -6,6 +6,9 @@ import { supabase } from '../supabaseClient.js'
 
 const itemList = ref([]);
 const items = ref(ITEMS);
+const props = defineProps({
+  id: String
+})
 
 async function getSavedItems() {
 // use read rows with filtering
@@ -29,9 +32,7 @@ async function addItem(item) {
   // use insert rows
   const {data, error } = await supabase
     .from('cart')
-    .insert([{ item }])
-    .select()
-    ;
+    .insert([{ item: item.name, user_id: props.id}])
     if (error) {
     console.log(error);
   } else {

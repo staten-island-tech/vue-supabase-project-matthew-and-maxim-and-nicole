@@ -27,7 +27,8 @@ const {data: session, error} = await supabase.auth.signInWithPassword ({
 if (error) {
     console.log(error)
 } else {
-    router.push("/store")
+    // console.log(session.user.id);
+    router.push("/store/" + session.user.id)
 }
 };
 
