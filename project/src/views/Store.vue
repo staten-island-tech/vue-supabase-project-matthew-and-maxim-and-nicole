@@ -29,7 +29,9 @@ async function addItem(item) {
   // use insert rows
   const {data, error } = await supabase
     .from('cart')
-    .insert([{ item }]);
+    .insert([{ item }])
+    .select()
+    ;
     if (error) {
     console.log(error);
   } else {
