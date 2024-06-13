@@ -10,59 +10,9 @@ const props = defineProps({
   id: String
 })
 
-async function getSavedItems() {
-// use read rows with filtering
-const { data: cart, error } = await supabase
-    .from('cart')
-    .select('item');
-    if (error) {
-    console.log(error);
-  } else {
-    itemList.value = cart.map(entry => entry.item);
-  }
-}
-
-
-async function addItem(item) {
- /*  itemList.value.push(item);
-  window.scrollTo(
-    0,
-    document.body.scrollHeight || document.documentElement.scrollHeight
-  ); */
-  // use insert rows
-  const {data, error } = await supabase
-    .from('cart')
-    .insert([{ item: item.name, user_id: props.id}])
-    if (error) {
-    console.log(error);
-  } else {
-    itemList.value.push(item);
-    window.scrollTo(
-      0,
-      document.body.scrollHeight || document.documentElement.scrollHeight
-    );
-  }
-          
-}
-
-async function removeItem(index) {
- /*  console.log(index);
-  console.log(itemList.value[index]);
-  itemList.value.splice(index, 1); */
-  // use delete rows
-  const itemToRemove = itemList.value[index];
-  const {error } = await supabase
-    .from('cart')
-    .delete()
-    .eq('item', itemToRemove);
-  if (error) {
-    console.log(error);
-  } else {
-    itemList.value.splice(index, 1);
-  }
-}
-
-onMounted(getSavedItems)
+onMounted(()=>{
+  cartStore.getSavedItems();
+});
 </script>
 
 <template>
