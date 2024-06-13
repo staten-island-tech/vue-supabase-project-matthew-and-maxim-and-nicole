@@ -9,6 +9,7 @@ const items = ref(ITEMS);
 const props = defineProps({
   id: String
 })
+const cartStore = useCartStore();
 
 onMounted(()=>{
   cartStore.getSavedItems();
