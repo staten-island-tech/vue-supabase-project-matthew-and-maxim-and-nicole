@@ -5,4 +5,7 @@ export const SignUp = defineStore('signup',{
     state: () => ({
        
       }),
-})
+      actions:{
+        
+      }
+    })
