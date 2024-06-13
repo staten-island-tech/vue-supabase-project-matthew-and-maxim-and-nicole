@@ -11,6 +11,10 @@ const props = defineProps({
 })
 const cartStore = useCartStore();
 
+async function addItem(item){
+  await cartStore.addItem(item, props.id);
+}
+
 onMounted(()=>{
   cartStore.getSavedItems();
 });
