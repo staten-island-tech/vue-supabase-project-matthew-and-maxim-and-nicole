@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted, ref } from "vue";
+import { useCartStore } from "../stores/counter";
 import ItemButton from "../components/ItemButton.vue";
 import { ITEMS } from "../constants/items";
-import { supabase } from '../supabaseClient.js'
 
 const itemList = ref([]);
 const items = ref(ITEMS);
