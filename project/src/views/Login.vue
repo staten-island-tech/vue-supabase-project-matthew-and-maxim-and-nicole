@@ -1,39 +1,35 @@
 <template>
     <div>
-        <label for="">Email:</label>
-        <input type="text" name="" v-model = "mail"/>
+      <div>
+        <label>Email:</label>
+        <input type="text" v-model="mail" />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" v-model="pass" />
+        <button @click="signInHandler">Submit</button>
+      </div>
     </div>
-    <div>
-        <label for="">Password:</label>
-        <input type="password" name="" v-model = "pass"/>
-        <button @click = "signIn()">Submit</button>
-    </div>
-    <!-- <button @click = "getSession()">Get current session</button> -->
-</template>
+  </template>
+  
+  <script setup>
+  import { ref } from 'vue';
+  import { useLoginStore } from '../stores/login.js'; 
+  const mail = ref('');
+  const pass = ref('');
+  const loginStore = useLoginStore();
+  
+  async function signInHandler() {
+    try {
+      const session = await loginStore.signIn(mail.value, pass.value);
+      console.log(mail.value, pass.value);
+      console.log(session);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  </script>
+  
+  <style scoped>
 
-<script setup>
-import router from '@/router';
-import { supabase } from '../supabaseClient.js'
-import { ref } from 'vue';
-
-const mail = ref("")
-const pass = ref("")
-
-async function signIn () {
-const {data: session, error} = await supabase.auth.signInWithPassword ({
-    email: mail.value,
-    password: pass.value,
-}) 
-if (error) {
-    console.log(error)
-} else {
-    // console.log(session.user.id);
-    router.push("/store/" + session.user.id)
-}
-};
-
-</script>
-
-<style scoped>
-
-</style>
+  </style>
