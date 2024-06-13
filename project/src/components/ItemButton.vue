@@ -1,12 +1,27 @@
+<template>
+  <button @click="$emit('clicked', value)">
+    <img :src="value.src" :alt="value.name" />
+    <span>{{ value.name }}</span>
+  </button>
+</template>
+
 <script setup>
 defineProps({
-  value: {
-    type: Object,
-    required: true,
-  },
+  value: Object,
 });
 </script>
 
-<template>
-  <button @click="$emit('clicked')">{{ value.name }}</button>
-</template>
+<style scoped>
+button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+img {
+  width: 35px;
+  height: 35px;
+}
+</style>
