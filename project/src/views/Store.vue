@@ -15,6 +15,10 @@ async function addItem(item){
   await cartStore.addItem(item, props.id);
 }
 
+async function removeItem(index){
+  await cartStore.removeItem(index);
+}
+
 onMounted(()=>{
   cartStore.getSavedItems();
 });
